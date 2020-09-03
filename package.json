@@ -2,6 +2,9 @@
   "name": "resident-api",
   "version": "0.0.1",
   "description": "",
+  "engines": {
+    "node": "12.16.3"
+  },
   "author": "",
   "private": true,
   "license": "MIT",

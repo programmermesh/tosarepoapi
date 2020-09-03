@@ -70,4 +70,14 @@ export class UserService {
     }
     return user;
   }
+
+  async deleteUser(id: any) {
+    const user = await this.find(id);
+    await this.userRepository.delete(id);
+    return {
+      resident: user,
+      ResponseCode: '00',
+      ResponseDescription: 'User deleted succesfully',
+    };
+  }
 }

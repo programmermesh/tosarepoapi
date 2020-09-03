@@ -8,6 +8,7 @@ import {
   Put,
   Param,
   Patch,
+  Delete,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDTO, UserUP, LoginDTO } from './user.dto';
@@ -43,5 +44,11 @@ export class UserController {
   updateRegister(@Param('id') id: any, @Body() data: UserUP) {
     this.logger.log(JSON.stringify(data));
     return this.userService.updateRegister(id, data);
+  }
+
+  @Delete(':id')
+  @ApiParam({ name: 'id' })
+  deleteUser(@Param('id') id: any) {
+    return this.userService.deleteUser(id);
   }
 }

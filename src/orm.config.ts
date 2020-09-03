@@ -6,5 +6,4 @@ export const config: TypeOrmModuleOptions = {
   synchronize: true,
   logging: true,
   entities: ['dist/**/**.entity{.ts,.js}'],
-  ssl: true,
 };

@@ -36,6 +36,9 @@ var UserController = /** @class */ (function () {
         this.logger.log(JSON.stringify(data));
         return this.userService.updateRegister(id, data);
     };
+    UserController.prototype.deleteUser = function (id) {
+        return this.userService.deleteUser(id);
+    };
     __decorate([
         common_1.Get(),
         __metadata("design:type", Function),
@@ -69,6 +72,14 @@ var UserController = /** @class */ (function () {
         __metadata("design:paramtypes", [Object, user_dto_1.UserUP]),
         __metadata("design:returntype", void 0)
     ], UserController.prototype, "updateRegister", null);
+    __decorate([
+        common_1.Delete(':id'),
+        swagger_1.ApiParam({ name: 'id' }),
+        __param(0, common_1.Param('id')),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], UserController.prototype, "deleteUser", null);
     UserController = __decorate([
         common_1.Controller('users'),
         __metadata("design:paramtypes", [user_service_1.UserService])

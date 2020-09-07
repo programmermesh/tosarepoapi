@@ -110,7 +110,7 @@ var UserEntity = /** @class */ (function () {
         __metadata("design:type", String)
     ], UserEntity.prototype, "id", void 0);
     __decorate([
-        typeorm_1.Column({ type: 'text', unique: true }),
+        typeorm_1.Column(),
         __metadata("design:type", String)
     ], UserEntity.prototype, "username", void 0);
     __decorate([

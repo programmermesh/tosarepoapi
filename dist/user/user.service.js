@@ -173,6 +173,26 @@ var UserService = /** @class */ (function () {
             });
         });
     };
+    UserService.prototype.deleteUser = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var user;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.find(id)];
+                    case 1:
+                        user = _a.sent();
+                        return [4 /*yield*/, this.userRepository.delete(id)];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/, {
+                                resident: user,
+                                ResponseCode: '00',
+                                ResponseDescription: 'User deleted succesfully',
+                            }];
+                }
+            });
+        });
+    };
     UserService = __decorate([
         common_1.Injectable(),
         __param(0, typeorm_1.InjectRepository(user_entity_1.UserEntity)),

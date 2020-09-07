@@ -38,38 +38,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@nestjs/core");
 var app_module_1 = require("./app.module");
+var swagger_1 = require("@nestjs/swagger");
 require("dotenv/config");
 function bootstrap() {
     return __awaiter(this, void 0, void 0, function () {
-        var app, port;
+        var app, port, options, document;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, core_1.NestFactory.create(app_module_1.AppModule)];
                 case 1:
                     app = _a.sent();
-                    // const app: NestExpressApplication = await NestFactory.create(AppModule);
                     app.enableCors();
                     port = process.env.Port;
-                    // const options = new DocumentBuilder()
-                    //   .setTitle('ResidentApi')
-                    //   .setDescription('Resident Management System')
-                    //   .setVersion('1.0')
-                    //   .build();
-                    // const document = SwaggerModule.createDocument(app, options);
-                    //SwaggerModule.setup('api', app, document);
-                    //SwaggerModule.setup('/api', app, document);
-                    //await app.listen(port);
+                    options = new swagger_1.DocumentBuilder()
+                        .setTitle('ResidentApi')
+                        .setDescription('Resident Management System')
+                        .setVersion('1.0')
+                        .build();
+                    document = swagger_1.SwaggerModule.createDocument(app, options);
+                    swagger_1.SwaggerModule.setup('/api', app, document);
                     return [4 /*yield*/, app.listen(process.env.PORT || 3000)];
                 case 2:
-                    // const options = new DocumentBuilder()
-                    //   .setTitle('ResidentApi')
-                    //   .setDescription('Resident Management System')
-                    //   .setVersion('1.0')
-                    //   .build();
-                    // const document = SwaggerModule.createDocument(app, options);
-                    //SwaggerModule.setup('api', app, document);
-                    //SwaggerModule.setup('/api', app, document);
-                    //await app.listen(port);
                     _a.sent();
                     return [2 /*return*/];
             }
